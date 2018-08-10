@@ -1,0 +1,20 @@
+version: '3'
+services:
+  redis:
+    image: 'redis'
+    command: redis-server
+    volumes:
+      - 'redis:/data'
+  sidekiq:
+    build: .
+    command: bundle exec sidekiq -r ./worker.rb
+    volumes:
+      - '.:/app'
+    env_file:
+      - '.env'
+    depends_on:
+      - redis
+volumes:
+  redis:
+
+  
