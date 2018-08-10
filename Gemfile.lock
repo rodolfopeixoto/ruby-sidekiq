@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     connection_pool (2.2.2)
+    mustermann (1.0.2)
     rack (2.0.5)
     rack-protection (2.0.3)
       rack
@@ -10,12 +11,20 @@ GEM
       connection_pool (~> 2.2, >= 2.2.2)
       rack-protection (>= 1.5.0)
       redis (>= 3.3.5, < 5)
+    sinatra (2.0.3)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.3)
+      tilt (~> 2.0)
+    tilt (2.0.8)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  rack
   sidekiq
+  sinatra
 
 BUNDLED WITH
    1.16.3

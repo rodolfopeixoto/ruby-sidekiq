@@ -8,12 +8,14 @@ Sidekiq.configure_server do |config|
   config.redis = {  host: 'redis', db: 1 }
 end
 
-class OverWorker
+class OurWorker
   include Sidekiq::Worker
 
   def perform(complexity)
     case complexity
     when "super_hard"
+      puts "Charging a credit card..."
+      raise "Woops stuff got bad"
       sleep 20
       puts "Really took quite a bit of effort"
     when "hard"
